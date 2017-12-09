@@ -12,7 +12,7 @@ source ./tools_env/bin/activate
 #confirm python version
 python --version
 #install requests
-pip install requests
+pip install -r requirements.txt
 
 ```
 
