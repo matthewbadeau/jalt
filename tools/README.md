@@ -15,3 +15,11 @@ python --version
 pip install requests
 
 ```
+
+## downloader.py
+
+This is just a demo script to programatically download files from the website. The endId is unknown at this time.
+
+The file name is currently: id_#.xml 
+
+Please limit your usage of the script. Do not pummel the website with requests.
