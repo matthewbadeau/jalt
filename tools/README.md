@@ -20,6 +20,6 @@ pip install -r requirements.txt
 
 This is just a demo script to programatically download files from the website. The endId is unknown at this time.
 
-The file name is currently: id_#.xml 
+The file name is currently: {ff#}_id_{id#}.xml 
 
 Please limit your usage of the script. Do not pummel the website with requests.
