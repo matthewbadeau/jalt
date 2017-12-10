@@ -22,7 +22,7 @@ for x in range(args.start, args.end):
     filename = params['ff'] + "_id_" + str(x) + ".xml"
     response = requests.get(url, allow_redirects=True, params=params)
 
-    if response.status_code == 200:
+    if response.status_code == 200 and 'content-disposition' in response.headers:
         if args.verbose:
             print("{id} exists. Writing to {filename}.".format(
                 id=x,
@@ -31,6 +31,11 @@ for x in range(args.start, args.end):
         with open(filename, 'wb') as fd:
             for chunk in response.iter_content(chunk_size=128):
                 fd.write(chunk)
+    elif response.status_code == 200 and not 'content-disposition' in response.headers:
+        if args.verbose:
+            print("{id} does not have a valid XML to download.".format(
+                id=x
+            ))
     elif response.status_code == 404:
         if args.verbose:
             print("{id} does not exist. Continuing.".format(
