@@ -17,7 +17,7 @@ url = 'http://www.japaneselawtranslation.go.jp/law/detail_download/'
 
 for x in range(args.start, args.end):
     params = { 'ff': args.format, 'id': x }
-    filename = "id_" + str(x) + ".xml"
+    filename = params['ff'] + "_id_" + str(x) + ".xml"
     response = requests.get(url, allow_redirects=True, params=params)
 
     if response.status_code == 200:
